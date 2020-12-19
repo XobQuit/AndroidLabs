@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.lab2.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_share"/>
-    <item
         android:id="@+id/action_share"
-        android:title="@string/action_termsofuse"
-        app:showAsAction="never"/>
+        android:orderInCategory="100"
+        android:title="@string/action_share" />
     <item
-        android:id="@+id/action_exit"
+        android:id="@+id/action_termsofuse"
+        android:title="@string/action_termsofuse"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
         android:title="@string/action_about"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 </menu>
