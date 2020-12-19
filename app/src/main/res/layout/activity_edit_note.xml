@@ -17,31 +17,31 @@
             android:padding="16dp">
 
             <EditText
-                android:id="@+id/addTitle"
+                android:id="@+id/editTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Title"
+                android:text="Title"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/addDescription"
+                android:id="@+id/editDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/desc"
+                android:text="@string/desc"
                 android:textSize="18sp"
-                android:textStyle="italic"/>
+                android:textStyle="italic" />
 
             <EditText
-                android:id="@+id/addTag"
+                android:id="@+id/editTag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tag"
+                android:text="Tag"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
             <LinearLayout
+                android:scrollbars="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -49,9 +49,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Color"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:text="Color"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -104,15 +104,16 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btnAdd"
-                android:background="#f0f0f0"
-                android:layout_marginTop="32dp"
+                android:id="@+id/btnEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save Note"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:background="#f0f0f0"
+                android:text="Save Note" />
         </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>
