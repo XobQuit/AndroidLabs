@@ -75,16 +75,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_settings -> {
-                Toast.makeText(applicationContext, "click on setting", Toast.LENGTH_LONG).show()
+            R.id.action_share -> {
+                Toast.makeText(applicationContext, "action_share", Toast.LENGTH_LONG).show()
                 true
             }
-            R.id.action_share ->{
-                Toast.makeText(applicationContext, "click on share", Toast.LENGTH_LONG).show()
+            R.id.action_about ->{
+                Toast.makeText(applicationContext, "action_about", Toast.LENGTH_LONG).show()
                 return true
             }
-            R.id.action_exit ->{
-                Toast.makeText(applicationContext, "click on exit", Toast.LENGTH_LONG).show()
+            R.id.action_termsofuse ->{
+                Toast.makeText(applicationContext, "action_termsofuse", Toast.LENGTH_LONG).show()
                 return true
             }
             else -> super.onOptionsItemSelected(item)
