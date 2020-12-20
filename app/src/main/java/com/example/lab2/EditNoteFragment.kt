@@ -118,4 +118,14 @@ class EditNoteFragment : Fragment(), View.OnClickListener {
             buttonColor(view)
         }
     }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(noteId: Int) =
+            EditNoteFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(ARG_NOTE_ID, noteId)
+                }
+            }
+    }
 }

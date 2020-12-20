@@ -4,11 +4,18 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var appRunTimer: AppRunTimer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Timber.plant(Timber.DebugTree())
+
+        appRunTimer = AppRunTimer(this.lifecycle)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -27,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         }*/
         return false
     }
+
 }
 /*
     private lateinit var notes : List<Note>

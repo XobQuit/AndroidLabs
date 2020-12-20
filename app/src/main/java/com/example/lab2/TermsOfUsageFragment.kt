@@ -18,4 +18,9 @@ class TermsOfUsageFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_terms_of_usage, container, false)
     }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = TermsOfUsageFragment() // factory method
+    }
 }

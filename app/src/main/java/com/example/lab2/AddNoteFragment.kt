@@ -88,4 +88,9 @@ class AddNoteFragment : Fragment(), View.OnClickListener {
             buttonColor(view)
         }
     }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = AddNoteFragment() // factory method
+    }
 }

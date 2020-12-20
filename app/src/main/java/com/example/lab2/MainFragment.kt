@@ -1,11 +1,15 @@
 package com.example.lab2
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.util.Log
 import android.view.*
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.core.content.getSystemService
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -17,6 +21,7 @@ import com.example.lab2.adapters.NotesAdapter
 import com.example.lab2.entities.Note
 import com.example.lab2.viewModel.NotesViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
+import timber.log.Timber
 
 
 class MainFragment : Fragment() {
@@ -65,25 +70,48 @@ class MainFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        //notesAdapter.notifyDataSetChanged()
+        Timber.i("Lab4::onResume")
     }
 
     override fun onStop() {
         super.onStop()
 
-        Log.i("INFO: ", "RECYCLER onStop")
+        Timber.i("Lab4::onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        Timber.i("Lab4::onDestroy")
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        Timber.i("Lab4::onStart")
     }
 
     override fun onPause() {
         super.onPause()
 
-        Log.i("INFO: ", "RECYCLER onPause")
+            val buzzer = activity?.getSystemService<Vibrator>()
+
+            buzzer?.let {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    buzzer.vibrate(VibrationEffect.createWaveform(longArrayOf(0, 2000), -1))
+                } else {
+                    //deprecated in API 26
+                    buzzer.vibrate(longArrayOf(0, 2000), -1)
+                }
+            }
+
+        Timber.i("Lab4::onPause")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
 
-        Log.i("INFO: ", "RECYCLER onDestroyView")
+        Timber.i("Lab4::onDestroyView")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -157,6 +185,8 @@ class MainFragment : Fragment() {
             Toast.makeText(applicationContext,"Note Updated", Toast.LENGTH_SHORT).show()
         }*/
     }
+
+
 
     private fun showNotePopup(note: Note, noteView: View?) {
         val popup = PopupMenu(context, noteView)
