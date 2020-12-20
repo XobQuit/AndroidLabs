@@ -1,7 +1,6 @@
 package com.example.lab2.adapters
 
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +38,7 @@ class NotesAdapter(private val notes: List<Note>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesAdapter.ViewHolder {
         var view = LayoutInflater.from(parent.context).
-            inflate(R.layout.recyclerview_item_row,parent,false)
+            inflate(R.layout.recyclerview_item_row, parent,false)
         return ViewHolder(view)
     }
 
@@ -53,7 +52,7 @@ class NotesAdapter(private val notes: List<Note>) :
         holder.txtDescription?.text = note.description
         holder.txtTag?.text = note.tag
         holder.cardView?.setBackgroundColor(Color.parseColor(note.color))
-        Log.i("Test", note.color)
+       // Log.i("Test", note.color)
         holder.cardViewTag?.setCardBackgroundColor(Color.parseColor(note.color))
 
         //holder.bind(note)

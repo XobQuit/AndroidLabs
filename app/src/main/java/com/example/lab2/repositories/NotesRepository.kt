@@ -27,6 +27,9 @@ class NotesRepository(app: Application) {
         return GetAllNotesAsync(notesDao).execute().get()
     }
 
+    fun getSingleNote(id: Int): LiveData<Note> {
+        return GetSingleNoteAsync(notesDao).execute(id).get()
+    }
 
     class InsertAsync(notesDao: NotesDao?): AsyncTask<Note, Void, Unit>() {
         var notesDao = notesDao
@@ -53,6 +56,13 @@ class NotesRepository(app: Application) {
         var notesDao = notesDao
         override fun doInBackground(vararg p0: Unit?): LiveData<List<Note>>? {
             return notesDao?.getAllNotes()
+        }
+    }
+
+    class GetSingleNoteAsync(notesDao: NotesDao?): AsyncTask<Int, Void, LiveData<Note>>(){
+        var notesDao = notesDao
+        override fun doInBackground(vararg p0: Int?): LiveData<Note>? {
+            return notesDao?.getSingleNote(p0[0]!!)
         }
     }
 }
