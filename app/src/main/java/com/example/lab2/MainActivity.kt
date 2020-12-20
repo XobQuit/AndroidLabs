@@ -1,26 +1,34 @@
 package com.example.lab2
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.lab2.adapters.NotesAdapter
-import com.example.lab2.entities.Note
-import com.example.lab2.viewModel.NotesViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        /*return when (item.itemId) {
+            R.id.action_about -> true
+            else -> super.onOptionsItemSelected(item)
+        }*/
+        return false
+    }
+}
+/*
     private lateinit var notes : List<Note>
     private lateinit var notesAdapter: NotesAdapter
     private lateinit var getAllNotes: LiveData<List<Note>>
@@ -37,16 +45,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*notes = listOf(
-            Note(1, "Note1", "Note1_desc", "red", "tag1"),
-            Note(1, "Note2", "Note2_desc", "green", "tag1"),
-            Note(1, "Note3", "Note3_desc", "blue", "tag1"),
-            Note(1, "Note4", "Note4_desc", "purple", "tag1"),
-            Note(1, "Note5", "Note5_desc", "cyan", "tag1")
-        )*/
-
         viewModel = ViewModelProvider(this).get(NotesViewModel::class.java)
-        //recyclerView.layoutManager = LinearLayoutManager(this)
 
         getAllNotes = viewModel.getAllNotes()
         getAllNotes.observe(this, Observer {
@@ -155,4 +154,5 @@ class MainActivity : AppCompatActivity() {
         })
         popup.show()
     }
-}
+
+ */
