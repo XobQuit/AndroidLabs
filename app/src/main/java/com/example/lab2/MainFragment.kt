@@ -107,14 +107,24 @@ class MainFragment : Fragment() {
         return when (item.itemId) {
             R.id.action_share -> {
                 Toast.makeText(context, "action_share", Toast.LENGTH_LONG).show()
+                val sendIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                    type = "text/plain"
+                }
+
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
                 return true
             }
             R.id.action_about ->{
                 Toast.makeText(context, "action_about", Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_mainFragment_to_aboutFragment)
                 return true
             }
             R.id.action_termsofuse ->{
                 Toast.makeText(context, "action_termsofuse", Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_mainFragment_to_termsOfUsageFragment)
                 return true
             }
             else -> super.onOptionsItemSelected(item)
@@ -160,22 +170,32 @@ class MainFragment : Fragment() {
                     val bundle = bundleOf("note_id" to id)
                     findNavController().navigate(R.id.action_mainFragment_to_editNoteFragment, bundle)
 
-                    //var editIntent = Intent(this, EditNoteActivtiy::class.java)
-                    //var title  = note.title
-                    //var description = note.description
-                   // var tag = note.tag
-                    //var color = note.color
+                    /*var editIntent = Intent(this, EditNoteActivtiy::class.java)
+                    var title  = note.title
+                    var description = note.description
+                   var tag = note.tag
+                    var color = note.color
 
-                   // editIntent.putExtra("title",title)
-                    //editIntent.putExtra("description",description)
-                    //editIntent.putExtra("tag",tag)
-                    //editIntent.putExtra("id",id.toString())
-                   // editIntent.putExtra("color",color.toString())
+                   editIntent.putExtra("title",title)
+                    editIntent.putExtra("description",description)
+                    editIntent.putExtra("tag",tag)
+                    editIntent.putExtra("id",id.toString())
+                    editIntent.putExtra("color",color.toString())
 
-                    //startActivityForResult(editIntent, edit)
+                    startActivityForResult(editIntent, edit)
 
-                    //Log.e("MainActivityclick",title + description + tag)
-                    //Toast.makeText(this@MainActivity, item.title, Toast.LENGTH_SHORT).show()
+                    Log.e("MainActivityclick",title + description + tag)
+                    Toast.makeText(this@MainActivity, item.title, Toast.LENGTH_SHORT).show()*/
+                }
+                R.id.action_share -> {
+                    val sendIntent: Intent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, note.title + " " + note.description)
+                        type = "text/plain"
+                    }
+
+                    val shareIntent = Intent.createChooser(sendIntent, null)
+                    startActivity(shareIntent)
                 }
                 R.id.action_delete -> {
                     viewModel.delete(note)

@@ -15,12 +15,15 @@
         <action
             android:id="@+id/action_mainFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
-
         <action
             android:id="@+id/action_mainFragment_to_editNoteFragment"
-            app:destination="@id/editNoteFragment" >
-        </action>
-
+            app:destination="@id/editNoteFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_termsOfUsageFragment"
+            app:destination="@id/termsOfUsageFragment" />
     </fragment>
 
     <fragment
@@ -39,4 +42,12 @@
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>
+    <fragment
+        android:id="@+id/termsOfUsageFragment"
+        android:name="com.example.lab2.TermsOfUsageFragment"
+        android:label="TermsOfUsageFragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.lab2.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>
