@@ -25,7 +25,8 @@
     <string name="action_share">Share</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="about_text">QWE</string>
+    <string name="about_text">Лабараторна робота #3</string>
     <string name="notes_list_fragment_label">Notes List</string>
     <string name="fragment_main_label">Main</string>
+    <string name="terms_text">Умови використання.... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis rhoncus enim. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum rhoncus ullamcorper scelerisque. Vivamus id massa eu justo fringilla ultricies non quis mauris. Curabitur libero tellus, consectetur eget ex vel, ullamcorper fermentum quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla nec facilisis mauris.</string>
 </resources>
