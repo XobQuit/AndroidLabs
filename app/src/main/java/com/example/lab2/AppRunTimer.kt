@@ -74,6 +74,7 @@ class AppRunTimer(lifecycle: Lifecycle) : LifecycleObserver {
     fun onDestroy() {
         appLiveTimer.cancel()
         Timber.i("App lifetime was " + appLifetime + " seconds")
+        Timber.i("App active time percentege: " + (appActiveTime / appLifetime * 100))
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)

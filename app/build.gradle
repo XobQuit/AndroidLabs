@@ -49,6 +49,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
 
+    def retrofit2_version = "2.9.0"
+
+    implementation "com.squareup.retrofit2:retrofit: $retrofit2_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit2_version"
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
     def room_version = "2.2.2"

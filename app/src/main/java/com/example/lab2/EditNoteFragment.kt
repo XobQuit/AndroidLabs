@@ -13,6 +13,7 @@ import com.example.lab2.entities.Note
 import com.example.lab2.viewModel.NotesViewModel
 import kotlinx.android.synthetic.main.fragment_add_note.view.*
 import kotlinx.android.synthetic.main.fragment_edit_note.*
+import java.util.*
 
 private const val ARG_NOTE_ID = "note_id"
 
@@ -38,6 +39,7 @@ class EditNoteFragment : Fragment(), View.OnClickListener {
             var title = note?.title
             var description = note?.description
             var tag = note?.tag
+            var creationDate = note?.creationDate
             var id = noteId
 
             //Toast.makeText(context, note?.title, Toast.LENGTH_SHORT).show()
@@ -62,7 +64,9 @@ class EditNoteFragment : Fragment(), View.OnClickListener {
                     noteColor = color.toString()
                 }
 
-                val note = Note(id!!, title!!, description!!, noteColor, tag!!)
+
+
+                val note = Note(id!!, title!!, description!!, noteColor, tag!!, creationDate, Calendar.getInstance().time)
 
                 if (note != null) {
                     viewModel.update(note)

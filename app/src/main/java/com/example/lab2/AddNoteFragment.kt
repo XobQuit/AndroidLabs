@@ -12,6 +12,7 @@ import com.example.lab2.entities.Note
 import com.example.lab2.viewModel.NotesViewModel
 import kotlinx.android.synthetic.main.fragment_add_note.*
 import kotlinx.android.synthetic.main.fragment_add_note.view.*
+import java.util.*
 
 class AddNoteFragment : Fragment(), View.OnClickListener {
     private var color:String? = null
@@ -34,7 +35,7 @@ class AddNoteFragment : Fragment(), View.OnClickListener {
                 noteColor = color.toString()
             }
 
-            val note = Note(0, title, description, noteColor, tag)
+            val note = Note(0, title, description, noteColor, tag, Calendar.getInstance().time, Calendar.getInstance().time)
 
             Toast.makeText(context,"Note Saved", Toast.LENGTH_SHORT).show()
 
